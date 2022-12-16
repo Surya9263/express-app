@@ -5,8 +5,8 @@ const app = express.Router();
 
 app.get("/", async (req, res) => {
   const users = await User.find();
-  //   console.log(users);
-  res.send("Route is working", users);
+    console.log(users);
+  res.send("Route is working");
 });
 
 module.exports = app;
