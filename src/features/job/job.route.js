@@ -25,4 +25,24 @@ app.post("/", async (req, res) => {
   }
 });
 
+app.post("/role", async (req, res) => {
+  try {
+    const filteredJob = await Job.find({ role: req.body.role });
+    res.send(filteredJob);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+app.post("/language", async (req, res) => {
+  try {
+    const filteredJob = await Job.find({ language: req.body.language });
+    res.send(filteredJob);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+module.exports = app;
+
 module.exports = app;
