@@ -18,7 +18,7 @@ app.post("/", async (req, res) => {
     let user = await User.find({ name });
     console.log(user);
     if (user.length !== 0) {
-      return res.status(400).send("user already exists");
+      return res.send(user);
     }
     user = await User.create({ name, difficulty, score });
     res.send(user);
