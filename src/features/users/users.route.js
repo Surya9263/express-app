@@ -18,6 +18,7 @@ app.post("/", async (req, res) => {
     let user = await User.find({ name });
     console.log(user);
     if (user.length !== 0) {
+      await user.update({ name: name, difficulty: difficulty });
       return res.send(user);
     }
     user = await User.create({ name, difficulty, score });
