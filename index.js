@@ -1,12 +1,12 @@
 const express = require("express");
 const connect = require("./src/configs/db");
-const userRoute = require("./src/features/users/users.route");
+const questionRoute = require("./src/features/questions/questions.router");
 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/user", userRoute);
+app.use("/questions", questionRoute);
 
 const PORT = process.env.PORT || 8080;
 
