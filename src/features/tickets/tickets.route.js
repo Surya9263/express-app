@@ -1,10 +1,10 @@
 const express = require("express");
-const auth = require("../../middleware/auth");
+const authMiddleware = require("../../middleware/auth");
 const Ticket = require("./tickets.model");
 
 const app = express.Router();
 
-app.post("/", auth, async (req, res) => {
+app.post("/", authMiddleware, async (req, res) => {
   const { Category, Title, Message } = req.body;
   try {
     const newTicket = await Ticket.create({
