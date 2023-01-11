@@ -25,7 +25,7 @@ app.post("/login", async (req, res) => {
   try {
     let user = await User.findOne({ email, password });
     if (!user) {
-      return res.status(401).send("Authentication Failed...");
+      return res.status(401).send("Authentication Failed");
     }
     res.send({
       token: `${user.id}:${user.name}:${user.email}`,
