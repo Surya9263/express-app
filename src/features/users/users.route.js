@@ -23,7 +23,7 @@ app.post("/signup", async (req, res) => {
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
-    let user = await User.findOne({ email, password });
+    let user = await User.findOne({ email:email, password:password });
     if (!user) {
       return res.status(401).send("Authentication Failed");
     }
